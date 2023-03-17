@@ -1,0 +1,25 @@
+package constants
+
+type LogLevel struct {
+	DEBUG   string
+	INFO    string
+	WARNING string
+	ERROR   string
+	FATAL   string
+}
+
+var LOG_LEVEL = LogLevel{
+	FATAL:   "fatal",
+	ERROR:   "error",
+	WARNING: "warning",
+	INFO:    "info",
+	DEBUG:   "debug",
+}
+
+var LOG_LEVEL_FILTER = map[string][]string{
+	LOG_LEVEL.FATAL:   {LOG_LEVEL.FATAL},
+	LOG_LEVEL.ERROR:   {LOG_LEVEL.FATAL, LOG_LEVEL.ERROR},
+	LOG_LEVEL.WARNING: {LOG_LEVEL.FATAL, LOG_LEVEL.ERROR, LOG_LEVEL.WARNING},
+	LOG_LEVEL.INFO:    {LOG_LEVEL.FATAL, LOG_LEVEL.ERROR, LOG_LEVEL.WARNING, LOG_LEVEL.INFO},
+	LOG_LEVEL.DEBUG:   {LOG_LEVEL.FATAL, LOG_LEVEL.ERROR, LOG_LEVEL.WARNING, LOG_LEVEL.INFO, LOG_LEVEL.DEBUG},
+}
